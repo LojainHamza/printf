@@ -128,7 +128,7 @@ int print_S(va_list ap, params_t *params)
 		hex = convert(*str, 16, 0, params);
 			if (!hex[1])
 				count += _putchar('0');
-				count += _puts(hex);
+		count += _puts(hex);
 	}
 	else
 	{
