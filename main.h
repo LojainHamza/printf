@@ -63,5 +63,6 @@ int print_rot13string(va_list types, char buffer[],
 int print_binary(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int get_precision(const char *format, int *i, va_list list);
+int get_size(const char *format, int *i);
 
 #endif /* MAIN_H */
