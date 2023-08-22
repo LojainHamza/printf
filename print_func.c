@@ -95,6 +95,7 @@ int print_string(va_list ap, params_t *params)
  *
  * Return: percetage char printed
  */
+
 int print_percent(va_list ap, params_t *params)
 {
 	(void)ap;
@@ -109,6 +110,7 @@ int print_percent(va_list ap, params_t *params)
  *
  * Return: number of printed characters
  */
+
 int print_S(va_list ap, params_t *params)
 {
 	char *str = va_arg(ap, char *);
