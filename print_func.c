@@ -74,7 +74,7 @@ int print_string(va_list ap, params_t *params)
 			else
 				count += _puts(str);
 	}
-	
+
 	while (j++ < params->width)
 		count += _putchar(pad_char);
 	if (!params->minus_flag)
