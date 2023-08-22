@@ -25,6 +25,7 @@ int print_int(va_list types, char buffer[],
 	buffer[i--] = '0';
 	buffer[BUFF_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
+
 	if (n < 0)
 {
 	num = (unsigned long int)((-1) * n);
