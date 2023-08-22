@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * convert - converter function, a clone of itoa
  * @num: number
@@ -19,27 +18,24 @@ char *convert(long int num, int base, int flags, params_t *params)
 	unsigned long n = num;
 	(void)params;
 
-		if (!(flags & CONVERT_UNSIGNED) && num < 0)
-		{
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
+	{
 		n = -num;
 		sign = '-';
-		}
-
+	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
-	do
-	{
+	do {
 		*--ptr = array[n % base];
 		n /= base;
-	}
-	while (n != 0);
+	} while (n != 0);
 
 	if (sign)
-		*--ptr = sign;
+	*--ptr = sign;
 	return (ptr);
-	}
+}
 
 /**
  * print_unsigned - Prints an unsigned integer
@@ -48,7 +44,6 @@ char *convert(long int num, int base, int flags, params_t *params)
  *
  * Return: number of printed digits
  */
-
 int print_unsigned(va_list ap, params_t *params)
 {
 	unsigned long l;
@@ -59,7 +54,7 @@ int print_unsigned(va_list ap, params_t *params)
 		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
 		l = (unsigned int)va_arg(ap, unsigned int);
-		params->unsign = 1;
+	params->unsign = 1;
 	return (print_number(convert(l, 10, CONVERT_UNSIGNED, params), params));
 }
 
@@ -70,14 +65,13 @@ int print_unsigned(va_list ap, params_t *params)
  *
  * Return: number of printed characters
  */
-
 int print_address(va_list ap, params_t *params)
 {
 	unsigned long int n = va_arg(ap, unsigned long int);
 	char *str;
 
 	if (!n)
-	return (_puts("(nil)"));
+		return (_puts("(nil)"));
 
 	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 	*--str = 'x';
