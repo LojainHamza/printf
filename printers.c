@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * print_from_to - prints a range of char addresses
  * @start: starting address
@@ -30,7 +31,7 @@ int print_from_to(char *start, char *stop, char *except)
  */
 int print_rev(va_list ap, params_t *params)
 {
-	int len, count = 0;
+	int len, sum = 0;
 	char *str = va_arg(ap, char *);
 	(void)params;
 
@@ -40,9 +41,9 @@ int print_rev(va_list ap, params_t *params)
 			len++;
 		str--;
 		for (; len > 0; len--, str--)
-			count += _putchar(*str);
+			sum += _putchar(*str);
 	}
-	return (count);
+	return (sum);
 }
 
 /**
